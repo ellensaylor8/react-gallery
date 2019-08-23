@@ -10,7 +10,9 @@ class App extends Component {
         </header>
         <br/>
         <p>Gallery goes here</p>
-        <img src="images/goat_small.jpg"/>
+        <img alt="Goat in mountain" src="images/goat_small.jpg"/>
+        <img alt="Crystal clear water" src="images/ocean.jpg"/>
+        <img alt="Country road in the fall" src="images/fall.jpg"/>
       </div>
     );
   }

@@ -25,13 +25,16 @@ class GalleryItem extends Component {
     render() {
         
         return (
-            <li>Track: {this.props.itemData.track}
+            <ul>
+            <li><img alt={this.props.itemData.description} src={this.props.itemData.path}/>
+            
                 <button
-                    onClick={this.clickDeleteHandler}
+                    onClick={this.clickLikeHandler}
                 >
-                    Delete
+                    love it!
                 </button>
             </li>
+            </ul>
         );
     }
 }

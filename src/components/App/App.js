@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
-// import GalleryList from '../GalleryList/GalleryList.js';
+import GalleryList from '../GalleryList/GalleryList.js';
 
 class App extends Component {
 state = {
@@ -42,7 +42,7 @@ getGallery = () => {
         {/* <img alt="Goat in mountain" src="images/goat_small.jpg"/>
         <img alt="Crystal clear water" src="images/ocean.jpg"/>
         <img alt="Country road in the fall" src="images/fall.jpg"/> */}
-        {/* <GalleryList getGalleryCallback={this.getGallery} list={this.state.galleryList} /> */}
+        <GalleryList getGalleryCallback={this.getGallery} list={this.state.galleryList} />
       </div>
     );
   }

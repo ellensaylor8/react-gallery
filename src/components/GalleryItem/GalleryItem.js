@@ -22,8 +22,6 @@ class GalleryItem extends Component {
         let placeholder;
     
         if (imageIsClicked) {
-            console.log('clicked');
-            // placeholder = <p onClick={this.handleDescriptionClick}> {this.props.itemData.description}  <p/>;
             placeholder = <p onClick={this.handleDescriptionClick}>{this.props.itemData.description} </p>;
           
         } else {
@@ -38,6 +36,7 @@ class GalleryItem extends Component {
                 <button
                     onClick={this.clickLikeHandler}
                 >love it!</button>
+                <p>{this.props.itemData.likes} people like this!</p>
             </div>
         );
     }

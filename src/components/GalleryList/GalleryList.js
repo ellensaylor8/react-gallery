@@ -14,9 +14,9 @@ class GalleryList extends Component {
         console.log(galleryElements);
 
         return (
-            <ul>
+            <div>
                 {galleryElements}
-            </ul>
+            </div>
         );
     }
 }

@@ -1,40 +1,44 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 
 class GalleryItem extends Component {
-    // deleteImage(imageId) {
-    //     axios({
-    //         method: 'DELETE',
-    //         url: `/songs/${songId}`,
-    //     })
-    //     // axios.get('/songs')
-    //     .then((response) => {
-    //         console.log('GET songs: ', response);
-    //         this.props.getSongsCallback()
-    //     })
-    //     .catch((err) => {
-    //         console.log('GET error: ', err);
-    //         alert('You Failed!!!');
-    //     });
-    // }
+    constructor(props) {
+        super(props);
+        this.handleImageClick = this.handleImageClick.bind(this);
+        this.handleDescriptionClick = this.handleDescriptionClick.bind(this);
+        this.state = {imageIsClicked: false};
+      }
+    
+      handleImageClick() {
+        this.setState({imageIsClicked: true});
+      }
+    
+      handleDescriptionClick() {
+        this.setState({imageIsClicked: false});
+      }
+    
+      render() {
+        const imageIsClicked = this.state.imageIsClicked;
+        let placeholder;
+    
+        if (imageIsClicked) {
+            console.log('clicked');
+            // placeholder = <p onClick={this.handleDescriptionClick}> {this.props.itemData.description}  <p/>;
+            placeholder = <p onClick={this.handleDescriptionClick}>{this.props.itemData.description} </p>;
+          
+        } else {
+            placeholder = <img alt={this.props.itemData.description} src={this.props.itemData.path} 
+            onClick={this.handleImageClick} />;
+        }
 
-    // clickDeleteHandler = (event) => {
-    //     this.deleteSongs(this.props.itemData.id);
-    // }
-
-    render() {
-        
         return (
-            <ul>
-            <li><img alt={this.props.itemData.description} src={this.props.itemData.path}/>
-            
+            <div>
+                {placeholder}
+                <br></br>
                 <button
                     onClick={this.clickLikeHandler}
-                >
-                    love it!
-                </button>
-            </li>
-            </ul>
+                >love it!</button>
+            </div>
         );
     }
 }

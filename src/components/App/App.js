@@ -38,7 +38,7 @@ getGallery = () => {
           <h1 className="App-title">Gallery of my life</h1>
         </header>
         <br/>
-        <p>Gallery goes here</p>
+        {/* <p>Gallery goes here</p> */}
         {/* <img alt="Goat in mountain" src="images/goat_small.jpg"/>
         <img alt="Crystal clear water" src="images/ocean.jpg"/>
         <img alt="Country road in the fall" src="images/fall.jpg"/> */}

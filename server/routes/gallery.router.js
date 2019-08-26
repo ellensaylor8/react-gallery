@@ -5,27 +5,24 @@ const pool = require('../modules/pool.js');
 
 // DO NOT MODIFY THIS FILE FOR BASE MODE
 
-// PUT Route
+// Update number of likes for image
 router.put('/like/:id', (req, res) => {
-    console.log(req.params);
     const galleryId = req.params.id;
-    for(const galleryItem of galleryItems) {
-        if(galleryItem.id == galleryId) {
-            galleryItem.likes += 1;
-        }
-    }
-    res.sendStatus(200);
-}); // END PUT Route
+    let sqlText = '';
+    sqlText = `UPDATE images SET likes=likes+1 WHERE id=$1`;
+    pool.query(sqlText, [galleryId])
+        .then((result) => {
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log(`Error making database query ${sqlText}`, error);
+            res.sendStatus(500);
+        })
+});
 
-// GET Route
-// router.get('/', (req, res) => {
-//     res.send(galleryItems);
-// }); // END GET Route
 
-// Setup a GET route to get all the songs from the database
+// Setup a GET route to get all the images from the database
 router.get('/', (req, res) => {
-    // When you fetch all things in these GET routes, strongly encourage ORDER BY
-    // so that things always come back in a consistent order 
     const sqlText = `SELECT * FROM images;`;
     pool.query(sqlText)
         .then((result) => {

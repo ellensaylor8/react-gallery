@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const galleryItems = require('../modules/gallery.data');
+// const galleryItems = require('../modules/gallery.data');
 const pool = require('../modules/pool.js');
 
 // DO NOT MODIFY THIS FILE FOR BASE MODE
@@ -23,7 +23,7 @@ router.put('/like/:id', (req, res) => {
 
 // Setup a GET route to get all the images from the database
 router.get('/', (req, res) => {
-    const sqlText = `SELECT * FROM images;`;
+    const sqlText = `SELECT * FROM images ORDER BY id ASC;`;
     pool.query(sqlText)
         .then((result) => {
             console.log(`Got stuff back from the database`, result);
